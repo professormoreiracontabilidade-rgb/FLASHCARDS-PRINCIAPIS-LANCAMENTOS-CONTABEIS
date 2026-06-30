@@ -3,366 +3,206 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Top 23 Lançamentos Contábeis FGV - Flashcards Professor Moreira</title>
+<title>Top 21 Lançamentos FGV - Professor Moreira</title>
 <style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{
-    min-height:100vh;
-    font-family:Arial, Helvetica, sans-serif;
-    background:linear-gradient(180deg,#eaf7ff 0%,#fff1f7 100%);
-    color:#102033;
-    display:flex;
-    justify-content:center;
-  }
-  .app{
-    width:100%;
-    max-width:430px;
-    min-height:100vh;
-    padding:10px;
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-  }
-  .topo,.rodape{
-    background:#0d47a1;
-    color:#fff;
-    text-align:center;
-    border-radius:14px;
-    padding:10px 8px;
-    font-weight:800;
-    box-shadow:0 4px 12px rgba(0,0,0,.18);
-    line-height:1.35;
-  }
-  .topo .curso{font-size:15px;text-transform:uppercase;letter-spacing:.3px}
-  .topo .whats,.rodape{font-size:14px}
-  h1{
-    text-align:center;
-    font-size:20px;
-    color:#0d47a1;
-    line-height:1.2;
-  }
-  .sub{
-    text-align:center;
-    font-size:13px;
-    color:#334;
-    font-weight:700;
-  }
-  .area{
-    flex:1;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    min-height:430px;
-  }
-  .card{
-    width:100%;
-    height:430px;
-    perspective:1000px;
-    cursor:pointer;
-    user-select:none;
-  }
-  .inner{
-    width:100%;
-    height:100%;
-    position:relative;
-    transition:transform .55s ease;
-    transform-style:preserve-3d;
-  }
-  .card.flipped .inner{transform:rotateY(180deg)}
-  .face{
-    position:absolute;
-    inset:0;
-    backface-visibility:hidden;
-    border-radius:24px;
-    border:4px solid rgba(13,71,161,.35);
-    box-shadow:0 10px 25px rgba(0,0,0,.22);
-    padding:20px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    overflow:auto;
-  }
-  .front{background:#cfeeff}
-  .back{background:#ffd6e8;transform:rotateY(180deg)}
-  .badge{
-    align-self:flex-end;
-    background:#0d47a1;
-    color:#fff;
-    padding:6px 12px;
-    border-radius:999px;
-    font-weight:800;
-    font-size:14px;
-  }
-  .frente-texto{
-    text-align:center;
-    font-weight:900;
-    color:#0d47a1;
-    font-size:30px;
-    line-height:1.2;
-    text-transform:uppercase;
-  }
-  .toque{
-    text-align:center;
-    font-weight:800;
-    color:#0d47a1;
-    font-size:15px;
-  }
-  .back h2{
-    text-align:center;
-    color:#ad1457;
-    font-size:22px;
-    line-height:1.18;
-    margin-bottom:10px;
-    text-transform:uppercase;
-  }
-  .bloco{
-    background:rgba(255,255,255,.7);
-    border-radius:16px;
-    padding:12px;
-    margin:8px 0;
-    font-size:19px;
-    line-height:1.35;
-  }
-  .rotulo{
-    font-weight:900;
-    color:#0d47a1;
-    display:block;
-    margin-bottom:5px;
-  }
-  .obs{
-    font-size:15px;
-    text-align:center;
-    font-weight:700;
-    color:#5b1232;
-    line-height:1.3;
-    margin-top:8px;
-  }
-  .nav{
-    display:grid;
-    grid-template-columns:1fr 1fr 1fr;
-    gap:8px;
-  }
-  button{
-    border:none;
-    border-radius:14px;
-    padding:13px 6px;
-    background:#0d47a1;
-    color:#fff;
-    font-weight:900;
-    font-size:15px;
-    cursor:pointer;
-    box-shadow:0 4px 10px rgba(0,0,0,.18);
-  }
-  button:active{transform:scale(.98)}
-  .contador{text-align:center;font-weight:900;color:#0d47a1;font-size:16px}
-  @media(max-width:380px){.card{height:410px}.frente-texto{font-size:26px}.bloco{font-size:17px}.back h2{font-size:20px}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(180deg,#e8f5ff,#fff5fa);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  color:#111;
+}
+.header,.footer{
+  background:#0b3d91;
+  color:#fff;
+  text-align:center;
+  padding:10px 8px;
+  font-weight:700;
+  font-size:14px;
+  line-height:1.35;
+}
+.footer{font-size:13px;margin-top:auto}
+.wrapper{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:16px 12px;
+}
+.progress{
+  width:100%;
+  max-width:430px;
+  text-align:center;
+  font-size:15px;
+  font-weight:700;
+  color:#0b3d91;
+  margin-bottom:10px;
+}
+.card-area{
+  width:100%;
+  max-width:430px;
+  height:68vh;
+  min-height:470px;
+  perspective:1200px;
+}
+.card{
+  width:100%;
+  height:100%;
+  position:relative;
+  transform-style:preserve-3d;
+  transition:transform .55s ease;
+  cursor:pointer;
+}
+.card.flipped{transform:rotateY(180deg)}
+.face{
+  position:absolute;
+  inset:0;
+  border-radius:22px;
+  padding:22px 18px;
+  backface-visibility:hidden;
+  box-shadow:0 10px 25px rgba(0,0,0,.22);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  border:3px solid rgba(11,61,145,.18);
+  overflow:auto;
+}
+.front{background:#bfe9ff}
+.back{background:#ffd6e8;transform:rotateY(180deg)}
+.badge{
+  background:#0b3d91;
+  color:#fff;
+  padding:7px 13px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:14px;
+  margin-bottom:16px;
+}
+h1{
+  font-size:30px;
+  color:#062d6f;
+  line-height:1.15;
+  margin-bottom:16px;
+  text-transform:uppercase;
+}
+h2{
+  font-size:23px;
+  color:#7a0036;
+  margin-bottom:12px;
+  text-transform:uppercase;
+}
+.tap{font-size:16px;font-weight:700;color:#333;margin-top:10px}
+.entry{
+  width:100%;
+  text-align:left;
+  font-size:20px;
+  line-height:1.35;
+}
+.entry p{margin:8px 0}
+.section-title{
+  font-weight:800;
+  color:#7a0036;
+  text-align:center;
+  font-size:20px;
+  margin:10px 0 8px;
+}
+.d,.c{font-weight:800}
+.d{color:#003f88}.c{color:#8a0033}
+.note{
+  background:rgba(255,255,255,.55);
+  border-left:5px solid #0b3d91;
+  padding:8px 10px;
+  border-radius:8px;
+  font-size:17px;
+  margin-top:10px;
+}
+.nav{
+  width:100%;
+  max-width:430px;
+  display:flex;
+  gap:8px;
+  margin-top:14px;
+}
+button{
+  flex:1;
+  border:none;
+  border-radius:12px;
+  background:#0b3d91;
+  color:#fff;
+  padding:13px 8px;
+  font-size:15px;
+  font-weight:800;
+  cursor:pointer;
+}
+button:active{transform:scale(.98)}
+@media(max-width:380px){
+  h1{font-size:25px}.entry{font-size:18px}.card-area{min-height:450px;height:66vh}
+}
 </style>
 </head>
 <body>
-<div class="app">
-  <div class="topo">
-    <div class="curso">Curso de Contabilidade Professor Moreira</div>
-    <div class="whats">WhatsApp 61 985323574</div>
-  </div>
-
-  <h1>TOP LANÇAMENTOS CONTÁBEIS FGV</h1>
-  <div class="sub">Flashcards Mobile — toque no cartão para virar</div>
-  <div class="contador" id="contador">Cartão 1 de 23</div>
-
-  <div class="area">
-    <div class="card" id="card" onclick="virarCartao()">
-      <div class="inner">
-        <div class="face front">
-          <div class="badge" id="numFrente">1/23</div>
-          <div class="frente-texto" id="textoFrente"></div>
-          <div class="toque">TOQUE PARA VER O LANÇAMENTO</div>
-        </div>
-        <div class="face back">
-          <div class="badge" id="numVerso">1/23</div>
-          <h2 id="tituloVerso"></h2>
-          <div>
-            <div class="bloco"><span class="rotulo">DÉBITO</span><div id="debito"></div></div>
-            <div class="bloco"><span class="rotulo">CRÉDITO</span><div id="credito"></div></div>
-            <div class="obs" id="obs"></div>
-          </div>
-          <div class="toque">TOQUE PARA VOLTAR</div>
-        </div>
-      </div>
+<div class="header">CURSO DE CONTABILIDADE PROFESSOR MOREIRA<br>WHATSAPP 61 985323574</div>
+<div class="wrapper">
+  <div class="progress" id="progress"></div>
+  <div class="card-area">
+    <div class="card" id="card" onclick="flipCard()">
+      <div class="face front" id="front"></div>
+      <div class="face back" id="back"></div>
     </div>
   </div>
-
   <div class="nav">
-    <button onclick="anterior(event)">◀ Voltar</button>
-    <button onclick="reiniciar(event)">↺ Reiniciar</button>
-    <button onclick="proximo(event)">Avançar ▶</button>
+    <button onclick="prevCard(event)">VOLTAR</button>
+    <button onclick="restart(event)">REINICIAR</button>
+    <button onclick="nextCard(event)">AVANÇAR</button>
   </div>
-
-  <div class="rodape">Curso de Contabilidade Professor Moreira<br>WhatsApp 61 985323574</div>
 </div>
-
+<div class="footer">CURSO DE CONTABILIDADE PROFESSOR MOREIRA • WHATSAPP 61 985323574</div>
 <script>
 const cards = [
-  {
-    t: "Subscrição do Capital Social",
-    d: "Capital a Integralizar (PL - redutora)",
-    c: "Capital Social (PL)",
-    o: "A empresa reconhece o capital prometido pelos sócios."
-  },
-  {
-    t: "Integralização do Capital Social",
-    d: "Caixa, Bancos ou Bens",
-    c: "Capital a Integralizar",
-    o: "O sócio entrega dinheiro ou bens para quitar a promessa feita na subscrição."
-  },
-  {
-    t: "Compra de Mercadorias + ICMS a Recuperar",
-    d: "Estoque de Mercadorias\nICMS a Recuperar",
-    c: "Caixa/Bancos ou Fornecedores",
-    o: "Tudo junto no mesmo fato contábil: o ICMS recuperável não entra no custo do estoque."
-  },
-  {
-    t: "Venda de Mercadorias + Baixa do CMV",
-    d: "1º lançamento: Caixa/Bancos ou Clientes\n2º lançamento: CMV",
-    c: "1º lançamento: Receita de Vendas\n2º lançamento: Estoque de Mercadorias",
-    o: "Na venda, a FGV costuma cobrar a receita e a baixa do estoque vendido."
-  },
-  {
-    t: "ICMS sobre Vendas",
-    d: "Deduções da Receita Bruta",
-    c: "ICMS a Recolher",
-    o: "O ICMS sobre vendas reduz a receita bruta."
-  },
-  {
-    t: "Seguro Pago Antecipadamente",
-    d: "Seguros a Apropriar",
-    c: "Caixa/Bancos",
-    o: "Pagamento antecipado gera ativo, pois o serviço ainda será consumido."
-  },
-  {
-    t: "Apropriação da Despesa de Seguro",
-    d: "Despesa com Seguros",
-    c: "Seguros a Apropriar",
-    o: "Pelo regime de competência, a despesa é reconhecida mês a mês."
-  },
-  {
-    t: "Receita Recebida Antecipadamente",
-    d: "Caixa/Bancos",
-    c: "Receita Antecipada",
-    o: "Recebeu antes de prestar o serviço: nasce uma obrigação no passivo."
-  },
-  {
-    t: "Apropriação da Receita Antecipada",
-    d: "Receita Antecipada",
-    c: "Receita de Serviços/Vendas",
-    o: "Após prestar o serviço ou entregar o bem, o passivo vira receita."
-  },
-  {
-    t: "Depreciação",
-    d: "Despesa de Depreciação ou Custo de Produção",
-    c: "Depreciação Acumulada",
-    o: "Bem administrativo gera despesa; bem usado na produção gera custo."
-  },
-  {
-    t: "Constituição da PECLD",
-    d: "Despesa com PECLD",
-    c: "Perdas Estimadas com Créditos de Liquidação Duvidosa",
-    o: "Conta redutora de Clientes no ativo."
-  },
-  {
-    t: "Ajuste a Valor Presente (AVP)",
-    d: "Clientes ou Fornecedores",
-    c: "Ajuste a Valor Presente / Juros a Apropriar",
-    o: "A FGV costuma separar o valor presente dos juros embutidos."
-  },
-  {
-    t: "Equivalência Patrimonial",
-    d: "Investimentos",
-    c: "Receita de Equivalência Patrimonial",
-    o: "Quando a investida apura lucro, aumenta o investimento."
-  },
-  {
-    t: "Dividendos Obrigatórios",
-    d: "Lucros Acumulados",
-    c: "Dividendos a Pagar",
-    o: "Reconhece a obrigação de distribuir dividendos aos sócios ou acionistas."
-  },
-  {
-    t: "Constituição da Reserva Legal",
-    d: "Lucros Acumulados",
-    c: "Reserva Legal",
-    o: "Destinação do lucro para reserva dentro do patrimônio líquido."
-  },
-  {
-    t: "Apropriação de Salários",
-    d: "Despesa com Salários",
-    c: "Salários a Pagar",
-    o: "Reconhece a despesa pelo regime de competência."
-  },
-  {
-    t: "Apropriação do FGTS",
-    d: "Despesa com FGTS",
-    c: "FGTS a Recolher",
-    o: "Encargo da empresa reconhecido como despesa e obrigação."
-  },
-  {
-    t: "Adiantamento de Clientes",
-    d: "Caixa/Bancos",
-    c: "Adiantamento de Clientes",
-    o: "Cliente pagou antes; para a empresa é obrigação."
-  },
-  {
-    t: "Adiantamento a Fornecedores",
-    d: "Adiantamento a Fornecedores",
-    c: "Caixa/Bancos",
-    o: "Empresa pagou antes; para ela é direito no ativo."
-  },
-  {
-    t: "Adiantamento de Salários",
-    d: "Adiantamento de Salários",
-    c: "Caixa/Bancos",
-    o: "Pagamento antes do trabalho do empregado gera ativo."
-  },
-  {
-    t: "Desconto de Duplicatas",
-    d: "Caixa/Bancos\nEncargos Financeiros a Transcorrer",
-    c: "Empréstimos por Duplicatas Descontadas",
-    o: "Tratamento moderno: duplicata descontada gera passivo financeiro."
-  },
-  {
-    t: "Venda de Imobilizado",
-    d: "Caixa/Bancos ou Clientes\nDepreciação Acumulada\nPerda na Venda, se houver",
-    c: "Imobilizado\nGanho na Venda, se houver",
-    o: "Baixa-se o bem, baixa-se a depreciação acumulada e reconhece-se ganho ou perda."
-  },
-  {
-    t: "Compra de Imobilizado",
-    d: "Máquinas, Veículos ou Imóveis",
-    c: "Caixa/Bancos ou Fornecedores",
-    o: "Reconhece o bem no ativo não circulante imobilizado."
-  }
+{t:'Subscrição do Capital Social',b:`<div class="entry"><p><span class="d">D – Capital a Integralizar</span> <br>(PL - Redutora)</p><p><span class="c">C – Capital Social</span> <br>(PL)</p><div class="note">Os sócios assumem o compromisso de entregar recursos à entidade.</div></div>`},
+{t:'Integralização do Capital Social',b:`<div class="entry"><p><span class="d">D – Caixa/Bancos/Bens</span> <br>(Ativo)</p><p><span class="c">C – Capital a Integralizar</span> <br>(PL - Redutora)</p><div class="note">O sócio entrega dinheiro ou bens prometidos na subscrição.</div></div>`},
+{t:'Compra de Mercadorias com ICMS a Recuperar',b:`<div class="entry"><div class="section-title">Compra a prazo com ICMS recuperável</div><p><span class="d">D – Estoques</span></p><p><span class="d">D – ICMS a Recuperar</span></p><p><span class="c">C – Fornecedores</span></p><div class="note">Na compra, o ICMS recuperável não compõe o custo do estoque.</div></div>`},
+{t:'Venda de Mercadorias + Baixa do CMV',b:`<div class="entry"><div class="section-title">1º lançamento – venda</div><p><span class="d">D – Caixa/Clientes</span></p><p><span class="c">C – Receita de Vendas</span></p><div class="section-title">2º lançamento – baixa do estoque</div><p><span class="d">D – CMV</span></p><p><span class="c">C – Estoques</span></p></div>`},
+{t:'ICMS sobre Vendas',b:`<div class="entry"><p><span class="d">D – Deduções da Receita Bruta</span></p><p><span class="c">C – ICMS a Recolher</span></p><div class="note">Na venda, o ICMS reduz a receita bruta.</div></div>`},
+{t:'Seguros',b:`<div class="entry"><div class="section-title">1º lançamento – pagamento antecipado</div><p><span class="d">D – Seguros a Apropriar</span></p><p><span class="c">C – Caixa/Bancos</span></p><div class="section-title">2º lançamento – apropriação mensal</div><p><span class="d">D – Despesa com Seguros</span></p><p><span class="c">C – Seguros a Apropriar</span></p></div>`},
+{t:'Receita Recebida Antecipadamente',b:`<div class="entry"><p><span class="d">D – Caixa/Bancos</span></p><p><span class="c">C – Receita Antecipada</span> <br>(Passivo)</p><div class="note">Recebeu antes de prestar o serviço ou entregar o bem.</div></div>`},
+{t:'Apropriação da Receita Antecipada',b:`<div class="entry"><p><span class="d">D – Receita Antecipada</span> <br>(Passivo)</p><p><span class="c">C – Receita de Serviços/Vendas</span></p><div class="note">A receita só vai ao resultado quando for ganha.</div></div>`},
+{t:'Depreciação',b:`<div class="entry"><p><span class="d">D – Despesa de Depreciação</span></p><p><span class="c">C – Depreciação Acumulada</span> <br>(Ativo - Redutora)</p><div class="note">Se for máquina da fábrica, pode ir para custo de produção.</div></div>`},
+{t:'Constituição da PECLD',b:`<div class="entry"><p><span class="d">D – Despesa com PECLD</span></p><p><span class="c">C – PECLD</span> <br>(Ativo - Redutora de Clientes)</p><div class="note">Perda estimada com créditos de liquidação duvidosa.</div></div>`},
+{t:'Ajuste a Valor Presente - AVP',b:`<div class="entry"><div class="section-title">Venda a prazo com AVP</div><p><span class="d">D – Clientes</span></p><p><span class="c">C – Receita de Vendas</span></p><p><span class="c">C – Juros a Apropriar / AVP</span></p><div class="note">Depois, os juros são apropriados como receita financeira.</div></div>`},
+{t:'Equivalência Patrimonial',b:`<div class="entry"><div class="section-title">Lucro da investida</div><p><span class="d">D – Investimentos</span></p><p><span class="c">C – Receita de Equivalência Patrimonial</span></p><div class="section-title">Prejuízo da investida</div><p><span class="d">D – Despesa de Equivalência Patrimonial</span></p><p><span class="c">C – Investimentos</span></p></div>`},
+{t:'Dividendos Obrigatórios',b:`<div class="entry"><p><span class="d">D – Lucros Acumulados</span></p><p><span class="c">C – Dividendos a Pagar</span> <br>(Passivo)</p><div class="note">Destinação do lucro aos sócios ou acionistas.</div></div>`},
+{t:'Constituição da Reserva Legal',b:`<div class="entry"><p><span class="d">D – Lucros Acumulados</span></p><p><span class="c">C – Reserva Legal</span></p><div class="note">Transferência dentro do Patrimônio Líquido.</div></div>`},
+{t:'Apropriação e Pagamento de Salários',b:`<div class="entry"><div class="section-title">1º lançamento – apropriação</div><p><span class="d">D – Despesa com Salários</span></p><p><span class="c">C – Salários a Pagar</span></p><div class="section-title">2º lançamento – pagamento</div><p><span class="d">D – Salários a Pagar</span></p><p><span class="c">C – Caixa/Bancos</span></p><div class="note">Pagamento normalmente até o 5º dia útil do mês seguinte ao da apropriação.</div></div>`},
+{t:'Apropriação do FGTS',b:`<div class="entry"><p><span class="d">D – Despesa com FGTS</span></p><p><span class="c">C – FGTS a Recolher</span></p><div class="note">Encargo da empresa reconhecido por competência.</div></div>`},
+{t:'Adiantamento de Clientes',b:`<div class="entry"><p><span class="d">D – Caixa/Bancos</span></p><p><span class="c">C – Adiantamento de Clientes</span> <br>(Passivo)</p><div class="note">A empresa recebeu antes de entregar o produto ou serviço.</div></div>`},
+{t:'Adiantamento a Fornecedores',b:`<div class="entry"><p><span class="d">D – Adiantamento a Fornecedores</span> <br>(Ativo)</p><p><span class="c">C – Caixa/Bancos</span></p><div class="note">A empresa pagou antes de receber mercadorias ou serviços.</div></div>`},
+{t:'Adiantamento de Salários',b:`<div class="entry"><p><span class="d">D – Adiantamento de Salários</span> <br>(Ativo)</p><p><span class="c">C – Caixa/Bancos</span></p><div class="note">Quando a folha for apropriada, esse adiantamento será compensado.</div></div>`},
+{t:'Desconto de Duplicatas',b:`<div class="entry"><p><span class="d">D – Bancos</span></p><p><span class="d">D – Encargos Financeiros a Transcorrer</span></p><p><span class="c">C – Empréstimos por Duplicatas Descontadas</span></p><div class="note">Após CPC 48, normalmente tratado como passivo financeiro.</div></div>`},
+{t:'Compra e Venda de Imobilizado',b:`<div class="entry"><div class="section-title">Compra de imobilizado</div><p><span class="d">D – Imobilizado</span></p><p><span class="c">C – Caixa/Fornecedores</span></p><div class="section-title">Venda de imobilizado</div><p><span class="d">D – Caixa/Clientes</span></p><p><span class="c">C – Receita/Ganho na Venda do Imobilizado</span></p><div class="note">Na venda, também deve ocorrer a baixa do custo e da depreciação acumulada.</div></div>`}
 ];
-
-let atual = 0;
-const card = document.getElementById("card");
-
-function renderizar(){
-  const item = cards[atual];
-  card.classList.remove("flipped");
-  document.getElementById("numFrente").innerText = (atual + 1) + "/" + cards.length;
-  document.getElementById("numVerso").innerText = (atual + 1) + "/" + cards.length;
-  document.getElementById("contador").innerText = "Cartão " + (atual + 1) + " de " + cards.length;
-  document.getElementById("textoFrente").innerText = item.t;
-  document.getElementById("tituloVerso").innerText = item.t;
-  document.getElementById("debito").innerText = item.d;
-  document.getElementById("credito").innerText = item.c;
-  document.getElementById("obs").innerText = item.o;
+let current = 0;
+const card = document.getElementById('card');
+const front = document.getElementById('front');
+const back = document.getElementById('back');
+const progress = document.getElementById('progress');
+function render(){
+  card.classList.remove('flipped');
+  const item = cards[current];
+  progress.textContent = `Cartão ${current+1} de ${cards.length}`;
+  front.innerHTML = `<div class="badge">TOP LANÇAMENTOS FGV</div><h1>${item.t}</h1><div class="tap">TOQUE PARA VIRAR</div>`;
+  back.innerHTML = `<h2>${item.t}</h2>${item.b}<div class="tap">TOQUE PARA VOLTAR</div>`;
 }
-function virarCartao(){card.classList.toggle("flipped");}
-function proximo(e){e.stopPropagation(); atual = (atual + 1) % cards.length; renderizar();}
-function anterior(e){e.stopPropagation(); atual = (atual - 1 + cards.length) % cards.length; renderizar();}
-function reiniciar(e){e.stopPropagation(); atual = 0; renderizar();}
-
-renderizar();
+function flipCard(){card.classList.toggle('flipped')}
+function nextCard(e){e.stopPropagation(); current=(current+1)%cards.length; render()}
+function prevCard(e){e.stopPropagation(); current=(current-1+cards.length)%cards.length; render()}
+function restart(e){e.stopPropagation(); current=0; render()}
+render();
 </script>
 </body>
 </html>
