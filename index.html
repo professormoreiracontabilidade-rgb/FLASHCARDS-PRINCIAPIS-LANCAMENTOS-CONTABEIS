@@ -1,208 +1,380 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Top 21 Lançamentos FGV - Professor Moreira</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top 19 Lançamentos Contábeis FGV - Flashcards Mobile</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(180deg,#e8f5ff,#fff5fa);
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  color:#111;
-}
-.header,.footer{
-  background:#0b3d91;
-  color:#fff;
-  text-align:center;
-  padding:10px 8px;
-  font-weight:700;
-  font-size:14px;
-  line-height:1.35;
-}
-.footer{font-size:13px;margin-top:auto}
-.wrapper{
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  padding:16px 12px;
-}
-.progress{
-  width:100%;
-  max-width:430px;
-  text-align:center;
-  font-size:15px;
-  font-weight:700;
-  color:#0b3d91;
-  margin-bottom:10px;
-}
-.card-area{
-  width:100%;
-  max-width:430px;
-  height:68vh;
-  min-height:470px;
-  perspective:1200px;
-}
-.card{
-  width:100%;
-  height:100%;
-  position:relative;
-  transform-style:preserve-3d;
-  transition:transform .55s ease;
-  cursor:pointer;
-}
-.card.flipped{transform:rotateY(180deg)}
-.face{
-  position:absolute;
-  inset:0;
-  border-radius:22px;
-  padding:22px 18px;
-  backface-visibility:hidden;
-  box-shadow:0 10px 25px rgba(0,0,0,.22);
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  border:3px solid rgba(11,61,145,.18);
-  overflow:auto;
-}
-.front{background:#bfe9ff}
-.back{background:#ffd6e8;transform:rotateY(180deg)}
-.badge{
-  background:#0b3d91;
-  color:#fff;
-  padding:7px 13px;
-  border-radius:999px;
-  font-weight:700;
-  font-size:14px;
-  margin-bottom:16px;
-}
-h1{
-  font-size:30px;
-  color:#062d6f;
-  line-height:1.15;
-  margin-bottom:16px;
-  text-transform:uppercase;
-}
-h2{
-  font-size:23px;
-  color:#7a0036;
-  margin-bottom:12px;
-  text-transform:uppercase;
-}
-.tap{font-size:16px;font-weight:700;color:#333;margin-top:10px}
-.entry{
-  width:100%;
-  text-align:left;
-  font-size:20px;
-  line-height:1.35;
-}
-.entry p{margin:8px 0}
-.section-title{
-  font-weight:800;
-  color:#7a0036;
-  text-align:center;
-  font-size:20px;
-  margin:10px 0 8px;
-}
-.d,.c{font-weight:800}
-.d{color:#003f88}.c{color:#8a0033}
-.note{
-  background:rgba(255,255,255,.55);
-  border-left:5px solid #0b3d91;
-  padding:8px 10px;
-  border-radius:8px;
-  font-size:17px;
-  margin-top:10px;
-}
-.nav{
-  width:100%;
-  max-width:430px;
-  display:flex;
-  gap:8px;
-  margin-top:14px;
-}
-button{
-  flex:1;
-  border:none;
-  border-radius:12px;
-  background:#0b3d91;
-  color:#fff;
-  padding:13px 8px;
-  font-size:15px;
-  font-weight:800;
-  cursor:pointer;
-}
-button:active{transform:scale(.98)}
-@media(max-width:380px){
-  h1{font-size:25px}.entry{font-size:18px}.card-area{min-height:450px;height:66vh}
-}
+body{font-family:Arial, Helvetica, sans-serif;background:#eef6ff;color:#111;min-height:100vh;overflow:hidden}
+.app{width:100vw;height:100vh;display:flex;flex-direction:column}
+header{background:#0b2e63;color:white;text-align:center;padding:10px 8px;font-weight:800;font-size:15px;line-height:1.25;box-shadow:0 2px 8px #0003}
+.viewer{flex:1;position:relative;overflow:hidden}
+.slide{display:none;width:100%;height:100%;padding:14px 12px 82px;position:absolute;inset:0}
+.slide.active{display:flex;flex-direction:column;align-items:center;justify-content:center}
+.marca{position:absolute;top:10px;left:10px;right:10px;text-align:center;font-size:12px;font-weight:900;color:#0b2e63;line-height:1.25}
+.card{width:min(94vw,430px);height:min(70vh,590px);position:relative;perspective:1200px;cursor:pointer;margin-top:25px}
+.face{position:absolute;inset:0;border-radius:24px;backface-visibility:hidden;transition:transform .55s ease;box-shadow:0 12px 25px #0003;border:3px solid #0b2e63;padding:20px 18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:auto}
+.front{background:#bfe8ff}
+.back{background:#ffd1e6;transform:rotateY(180deg);text-align:left;align-items:stretch;justify-content:flex-start}
+.card.flipped .front{transform:rotateY(180deg)}
+.card.flipped .back{transform:rotateY(360deg)}
+h2{font-size:30px;color:#0b2e63;margin:18px 0 14px;text-transform:uppercase;line-height:1.12;text-align:center}
+h3{font-size:21px;color:#8a0046;margin:12px 0 8px;text-align:center}
+p{font-size:19px;line-height:1.35;margin:7px 0}
+.back p{text-align:left}
+.badge{background:#0b2e63;color:white;border-radius:999px;padding:8px 15px;font-weight:900;font-size:15px;align-self:center;margin-bottom:8px}
+.tipo{font-size:15px;color:#333;font-style:italic}
+.toque{margin-top:auto;padding-top:12px;font-size:14px;font-weight:800;color:#0b2e63;text-align:center;align-self:center}
+.rodape{position:absolute;bottom:66px;left:8px;right:8px;text-align:center;font-size:11px;font-weight:900;color:#0b2e63}
+.dica{background:#fff8b8;border-left:6px solid #f0c000;padding:9px;margin-top:10px;border-radius:8px;font-size:15px;font-weight:700;text-align:left}
+.obs{background:#fff;border-radius:10px;padding:8px;font-size:16px!important;font-weight:700;text-align:center!important}
+hr{border:0;border-top:2px dashed #8a0046;margin:10px 0;width:100%}
+nav{height:62px;background:#0b2e63;display:flex;gap:8px;align-items:center;justify-content:center;padding:8px;position:fixed;left:0;right:0;bottom:0}
+button{border:0;border-radius:14px;background:white;color:#0b2e63;font-weight:900;font-size:15px;padding:12px 14px;box-shadow:0 3px 8px #0003}
+.counter{color:white;font-weight:900;font-size:15px;min-width:60px;text-align:center}
+@media(max-height:700px){h2{font-size:24px}p{font-size:16px}h3{font-size:18px}.card{height:68vh}.face{padding:15px}}
 </style>
 </head>
 <body>
-<div class="header">CURSO DE CONTABILIDADE PROFESSOR MOREIRA<br>WHATSAPP 61 985323574</div>
-<div class="wrapper">
-  <div class="progress" id="progress"></div>
-  <div class="card-area">
-    <div class="card" id="card" onclick="flipCard()">
-      <div class="face front" id="front"></div>
-      <div class="face back" id="back"></div>
-    </div>
-  </div>
-  <div class="nav">
-    <button onclick="prevCard(event)">VOLTAR</button>
-    <button onclick="restart(event)">REINICIAR</button>
-    <button onclick="nextCard(event)">AVANÇAR</button>
-  </div>
+<div class="app">
+<header>TOP 19 LANÇAMENTOS CONTÁBEIS QUE MAIS CAEM NA FGV</header>
+<main class="viewer">
+<section class="slide" data-num="1">
+      <div class="marca">CURSO DE CONTABILIDADE PROFESSOR MOREIRA<br>WHATSAPP 61 985323574</div>
+      <div class="card" onclick="flipCard(this)">
+        <div class="face front">
+          <div class="badge">Cartão 1/19</div>
+          <h2>Subscrição do Capital Social</h2><p>Reconhecimento da promessa dos sócios.</p>
+          <div class="toque">Toque no cartão para virar</div>
+        </div>
+        <div class="face back">
+          <div class="badge">Cartão 1/19</div>
+          <h3>Lançamento</h3><p><b>Débito:</b> Capital a Integralizar<br><span class="tipo">PL - Redutora</span></p><p><b>Crédito:</b> Capital Social<br><span class="tipo">Patrimônio Líquido</span></p>
+          <div class="toque">Toque para voltar</div>
+        </div>
+      </div>
+      <div class="rodape">CURSO DE CONTABILIDADE PROFESSOR MOREIRA • WHATSAPP 61 985323574</div>
+    </section>
+<section class="slide" data-num="2">
+      <div class="marca">CURSO DE CONTABILIDADE PROFESSOR MOREIRA<br>WHATSAPP 61 985323574</div>
+      <div class="card" onclick="flipCard(this)">
+        <div class="face front">
+          <div class="badge">Cartão 2/19</div>
+          <h2>Integralização do Capital Social</h2><p>Quando o sócio entrega dinheiro ou bens para a empresa.</p>
+          <div class="toque">Toque no cartão para virar</div>
+        </div>
+        <div class="face back">
+          <div class="badge">Cartão 2/19</div>
+          <h3>Integralização em dinheiro</h3><p><b>Débito:</b> Caixa/Bancos<br><span class="tipo">Ativo</span></p><p><b>Crédito:</b> Capital a Integralizar<br><span class="tipo">PL - Redutora</span></p><hr><h3>Integralização com bens</h3><p><b>Débito:</b> Bem recebido<br><span class="tipo">Veículos, Máquinas, Imóveis etc.</span></p><p><b>Crédito:</b> Capital a Integralizar</p>
+          <div class="toque">Toque para voltar</div>
+        </div>
+      </div>
+      <div class="rodape">CURSO DE CONTABILIDADE PROFESSOR MOREIRA • WHATSAPP 61 985323574</div>
+    </section>
+<section class="slide" data-num="3">
+      <div class="marca">CURSO DE CONTABILIDADE PROFESSOR MOREIRA<br>WHATSAPP 61 985323574</div>
+      <div class="card" onclick="flipCard(this)">
+        <div class="face front">
+          <div class="badge">Cartão 3/19</div>
+          <h2>Compra de Mercadorias</h2><p>Com ICMS a recuperar.</p>
+          <div class="toque">Toque no cartão para virar</div>
+        </div>
+        <div class="face back">
+          <div class="badge">Cartão 3/19</div>
+          <h3>Compra com ICMS recuperável</h3><p><b>Débito:</b> Estoques<br><span class="tipo">Valor líquido da mercadoria</span></p><p><b>Débito:</b> ICMS a Recuperar<br><span class="tipo">Ativo</span></p><p><b>Crédito:</b> Fornecedores/Caixa<br><span class="tipo">Valor total da nota</span></p><div class="dica">FGV: tributo recuperável não compõe o custo do estoque.</div>
+          <div class="toque">Toque para voltar</div>
+        </div>
+      </div>
+      <div class="rodape">CURSO DE CONTABILIDADE PROFESSOR MOREIRA • WHATSAPP 61 985323574</div>
+    </section>
+<section class="slide" data-num="4">
+      <div class="marca">CURSO DE CONTABILIDADE PROFESSOR MOREIRA<br>WHATSAPP 61 985323574</div>
+      <div class="card" onclick="flipCard(this)">
+        <div class="face front">
+          <div class="badge">Cartão 4/19</div>
+          <h2>Venda de Mercadorias</h2><p>Venda e baixa do estoque no mesmo cartão.</p>
+          <div class="toque">Toque no cartão para virar</div>
+        </div>
+        <div class="face back">
+          <div class="badge">Cartão 4/19</div>
+          <h3>1º Lançamento – Venda</h3><p><b>Débito:</b> Clientes/Caixa<br><span class="tipo">Ativo</span></p><p><b>Crédito:</b> Receita de Vendas<br><span class="tipo">Resultado</span></p><hr><h3>2º Lançamento – Baixa do Estoque</h3><p><b>Débito:</b> CMV<br><span class="tipo">Custo da Mercadoria Vendida</span></p><p><b>Crédito:</b> Estoques<br><span class="tipo">Ativo</span></p>
+          <div class="toque">Toque para voltar</div>
+        </div>
+      </div>
+      <div class="rodape">CURSO DE CONTABILIDADE PROFESSOR MOREIRA • WHATSAPP 61 985323574</div>
+    </section>
+<section class="slide" data-num="5">
+      <div class="marca">CURSO DE CONTABILIDADE PROFESSOR MOREIRA<br>WHATSAPP 61 985323574</div>
+      <div class="card" onclick="flipCard(this)">
+        <div class="face front">
+          <div class="badge">Cartão 5/19</div>
+          <h2>Constituição da PECLD</h2><p>Perdas estimadas com créditos de liquidação duvidosa.</p>
+          <div class="toque">Toque no cartão para virar</div>
+        </div>
+        <div class="face back">
+          <div class="badge">Cartão 5/19</div>
+          <h3>Lançamento</h3><p><b>Débito:</b> Despesa com PECLD<br><span class="tipo">Resultado</span></p><p><b>Crédito:</b> PECLD<br><span class="tipo">Ativo - Conta Redutora de Clientes</span></p>
+          <div class="toque">Toque para voltar</div>
+        </div>
+      </div>
+      <div class="rodape">CURSO DE CONTABILIDADE PROFESSOR MOREIRA • WHATSAPP 61 985323574</div>
+    </section>
+<section class="slide" data-num="6">
+      <div class="marca">CURSO DE CONTABILIDADE PROFESSOR MOREIRA<br>WHATSAPP 61 985323574</div>
+      <div class="card" onclick="flipCard(this)">
+        <div class="face front">
+          <div class="badge">Cartão 6/19</div>
+          <h2>Seguros e Receitas Antecipadas</h2><p>Regime de Competência</p>
+          <div class="toque">Toque no cartão para virar</div>
+        </div>
+        <div class="face back">
+          <div class="badge">Cartão 6/19</div>
+          <h3>SEGUROS</h3><p><b>1º Pagamento do seguro</b></p><p><b>Débito:</b> Seguros a Apropriar<br><span class="tipo">Ativo</span></p><p><b>Crédito:</b> Caixa/Bancos<br><span class="tipo">Ativo</span></p><hr><p><b>2º Apropriação mensal</b></p><p><b>Débito:</b> Despesa com Seguros<br><span class="tipo">Resultado</span></p><p><b>Crédito:</b> Seguros a Apropriar<br><span class="tipo">Ativo</span></p><hr><h3>RECEITAS ANTECIPADAS</h3><p><b>1º Recebimento antecipado</b></p><p><b>Débito:</b> Caixa/Bancos<br><span class="tipo">Ativo</span></p><p><b>Crédito:</b> Receita Antecipada<br><span class="tipo">Passivo</span></p><hr><p><b>2º Apropriação da receita</b></p><p><b>Débito:</b> Receita Antecipada<br><span class="tipo">Passivo</span></p><p><b>Crédito:</b> Receita de Serviços<br><span class="tipo">Resultado</span></p>
+          <div class="toque">Toque para voltar</div>
+        </div>
+      </div>
+      <div class="rodape">CURSO DE CONTABILIDADE PROFESSOR MOREIRA • WHATSAPP 61 985323574</div>
+    </section>
+<section class="slide" data-num="7">
+      <div class="marca">CURSO DE CONTABILIDADE PROFESSOR MOREIRA<br>WHATSAPP 61 985323574</div>
+      <div class="card" onclick="flipCard(this)">
+        <div class="face front">
+          <div class="badge">Cartão 7/19</div>
+          <h2>Depreciação</h2><p>Reconhecimento da perda do potencial de uso do ativo.</p>
+          <div class="toque">Toque no cartão para virar</div>
+        </div>
+        <div class="face back">
+          <div class="badge">Cartão 7/19</div>
+          <h3>Bem administrativo</h3><p><b>Débito:</b> Despesa de Depreciação</p><p><b>Crédito:</b> Depreciação Acumulada<br><span class="tipo">Ativo - Redutora</span></p><hr><h3>Bem industrial</h3><p><b>Débito:</b> CIF / Custo de Produção</p><p><b>Crédito:</b> Depreciação Acumulada</p>
+          <div class="toque">Toque para voltar</div>
+        </div>
+      </div>
+      <div class="rodape">CURSO DE CONTABILIDADE PROFESSOR MOREIRA • WHATSAPP 61 985323574</div>
+    </section>
+<section class="slide" data-num="8">
+      <div class="marca">CURSO DE CONTABILIDADE PROFESSOR MOREIRA<br>WHATSAPP 61 985323574</div>
+      <div class="card" onclick="flipCard(this)">
+        <div class="face front">
+          <div class="badge">Cartão 8/19</div>
+          <h2>Compra de Imobilizado</h2><p>Máquinas, veículos, móveis, equipamentos etc.</p>
+          <div class="toque">Toque no cartão para virar</div>
+        </div>
+        <div class="face back">
+          <div class="badge">Cartão 8/19</div>
+          <h3>Lançamento</h3><p><b>Débito:</b> Imobilizado<br><span class="tipo">Máquinas, Veículos, Equipamentos...</span></p><p><b>Crédito:</b> Caixa/Fornecedores<br><span class="tipo">Ativo ou Passivo</span></p><div class="dica">Frete, instalação e testes necessários podem compor o custo do ativo.</div>
+          <div class="toque">Toque para voltar</div>
+        </div>
+      </div>
+      <div class="rodape">CURSO DE CONTABILIDADE PROFESSOR MOREIRA • WHATSAPP 61 985323574</div>
+    </section>
+<section class="slide" data-num="9">
+      <div class="marca">CURSO DE CONTABILIDADE PROFESSOR MOREIRA<br>WHATSAPP 61 985323574</div>
+      <div class="card" onclick="flipCard(this)">
+        <div class="face front">
+          <div class="badge">Cartão 9/19</div>
+          <h2>Venda de Imobilizado</h2><p>Venda e baixa do valor contábil.</p>
+          <div class="toque">Toque no cartão para virar</div>
+        </div>
+        <div class="face back">
+          <div class="badge">Cartão 9/19</div>
+          <h3>1º Recebimento da venda</h3><p><b>Débito:</b> Caixa/Clientes</p><p><b>Crédito:</b> Receita/Ganho na Venda do Imobilizado</p><hr><h3>2º Baixa da depreciação</h3><p><b>Débito:</b> Depreciação Acumulada</p><p><b>Crédito:</b> Imobilizado</p><hr><h3>3º Baixa do valor contábil</h3><p><b>Débito:</b> Perda/Custo na Baixa do Imobilizado</p><p><b>Crédito:</b> Imobilizado</p>
+          <div class="toque">Toque para voltar</div>
+        </div>
+      </div>
+      <div class="rodape">CURSO DE CONTABILIDADE PROFESSOR MOREIRA • WHATSAPP 61 985323574</div>
+    </section>
+<section class="slide" data-num="10">
+      <div class="marca">CURSO DE CONTABILIDADE PROFESSOR MOREIRA<br>WHATSAPP 61 985323574</div>
+      <div class="card" onclick="flipCard(this)">
+        <div class="face front">
+          <div class="badge">Cartão 10/19</div>
+          <h2>Ajuste a Valor Presente</h2><p>Separação entre valor principal e juros embutidos.</p>
+          <div class="toque">Toque no cartão para virar</div>
+        </div>
+        <div class="face back">
+          <div class="badge">Cartão 10/19</div>
+          <h3>Venda a prazo com juros embutidos</h3><p><b>Débito:</b> Clientes<br><span class="tipo">Valor total a receber</span></p><p><b>Crédito:</b> Receita de Vendas<br><span class="tipo">Valor presente</span></p><p><b>Crédito:</b> Juros a Apropriar / AVP<br><span class="tipo">Conta redutora de Clientes</span></p><hr><h3>Apropriação dos juros</h3><p><b>Débito:</b> Juros a Apropriar / AVP</p><p><b>Crédito:</b> Receita Financeira</p>
+          <div class="toque">Toque para voltar</div>
+        </div>
+      </div>
+      <div class="rodape">CURSO DE CONTABILIDADE PROFESSOR MOREIRA • WHATSAPP 61 985323574</div>
+    </section>
+<section class="slide" data-num="11">
+      <div class="marca">CURSO DE CONTABILIDADE PROFESSOR MOREIRA<br>WHATSAPP 61 985323574</div>
+      <div class="card" onclick="flipCard(this)">
+        <div class="face front">
+          <div class="badge">Cartão 11/19</div>
+          <h2>Desconto de Duplicatas</h2><p>Antecipação de valores junto ao banco.</p>
+          <div class="toque">Toque no cartão para virar</div>
+        </div>
+        <div class="face back">
+          <div class="badge">Cartão 11/19</div>
+          <h3>Lançamento na operação</h3><p><b>Débito:</b> Banco Conta Movimento<br><span class="tipo">Valor líquido recebido</span></p><p><b>Débito:</b> Encargos Financeiros a Transcorrer<br><span class="tipo">ou Despesa Financeira, conforme a questão</span></p><p><b>Crédito:</b> Empréstimos por Duplicatas Descontadas<br><span class="tipo">Passivo</span></p>
+          <div class="toque">Toque para voltar</div>
+        </div>
+      </div>
+      <div class="rodape">CURSO DE CONTABILIDADE PROFESSOR MOREIRA • WHATSAPP 61 985323574</div>
+    </section>
+<section class="slide" data-num="12">
+      <div class="marca">CURSO DE CONTABILIDADE PROFESSOR MOREIRA<br>WHATSAPP 61 985323574</div>
+      <div class="card" onclick="flipCard(this)">
+        <div class="face front">
+          <div class="badge">Cartão 12/19</div>
+          <h2>Equivalência Patrimonial</h2><p>Investimentos em coligadas e controladas.</p>
+          <div class="toque">Toque no cartão para virar</div>
+        </div>
+        <div class="face back">
+          <div class="badge">Cartão 12/19</div>
+          <h3>Quando a investida tem lucro</h3><p><b>Débito:</b> Investimentos</p><p><b>Crédito:</b> Receita de Equivalência Patrimonial</p><hr><h3>Quando a investida tem prejuízo</h3><p><b>Débito:</b> Despesa de Equivalência Patrimonial</p><p><b>Crédito:</b> Investimentos</p>
+          <div class="toque">Toque para voltar</div>
+        </div>
+      </div>
+      <div class="rodape">CURSO DE CONTABILIDADE PROFESSOR MOREIRA • WHATSAPP 61 985323574</div>
+    </section>
+<section class="slide" data-num="13">
+      <div class="marca">CURSO DE CONTABILIDADE PROFESSOR MOREIRA<br>WHATSAPP 61 985323574</div>
+      <div class="card" onclick="flipCard(this)">
+        <div class="face front">
+          <div class="badge">Cartão 13/19</div>
+          <h2>Dividendos Obrigatórios</h2><p>Destinação do lucro aos acionistas/sócios.</p>
+          <div class="toque">Toque no cartão para virar</div>
+        </div>
+        <div class="face back">
+          <div class="badge">Cartão 13/19</div>
+          <h3>Lançamento</h3><p><b>Débito:</b> Lucros Acumulados</p><p><b>Crédito:</b> Dividendos a Pagar<br><span class="tipo">Passivo</span></p>
+          <div class="toque">Toque para voltar</div>
+        </div>
+      </div>
+      <div class="rodape">CURSO DE CONTABILIDADE PROFESSOR MOREIRA • WHATSAPP 61 985323574</div>
+    </section>
+<section class="slide" data-num="14">
+      <div class="marca">CURSO DE CONTABILIDADE PROFESSOR MOREIRA<br>WHATSAPP 61 985323574</div>
+      <div class="card" onclick="flipCard(this)">
+        <div class="face front">
+          <div class="badge">Cartão 14/19</div>
+          <h2>Reserva Legal</h2><p>Destinação obrigatória de parte do lucro líquido.</p>
+          <div class="toque">Toque no cartão para virar</div>
+        </div>
+        <div class="face back">
+          <div class="badge">Cartão 14/19</div>
+          <h3>Lançamento</h3><p><b>Débito:</b> Lucros Acumulados</p><p><b>Crédito:</b> Reserva Legal<br><span class="tipo">Patrimônio Líquido</span></p>
+          <div class="toque">Toque para voltar</div>
+        </div>
+      </div>
+      <div class="rodape">CURSO DE CONTABILIDADE PROFESSOR MOREIRA • WHATSAPP 61 985323574</div>
+    </section>
+<section class="slide" data-num="15">
+      <div class="marca">CURSO DE CONTABILIDADE PROFESSOR MOREIRA<br>WHATSAPP 61 985323574</div>
+      <div class="card" onclick="flipCard(this)">
+        <div class="face front">
+          <div class="badge">Cartão 15/19</div>
+          <h2>Salários</h2><p>Apropriação e pagamento da folha.</p>
+          <div class="toque">Toque no cartão para virar</div>
+        </div>
+        <div class="face back">
+          <div class="badge">Cartão 15/19</div>
+          <h3>1º Apropriação da despesa de salários</h3><p><b>Débito:</b> Despesa com Salários</p><p><b>Crédito:</b> Salários a Pagar<br><span class="tipo">Passivo</span></p><hr><h3>2º Pagamento dos salários</h3><p class="obs">Normalmente até o 5º dia útil do mês seguinte ao da apropriação.</p><p><b>Débito:</b> Salários a Pagar</p><p><b>Crédito:</b> Caixa/Bancos</p>
+          <div class="toque">Toque para voltar</div>
+        </div>
+      </div>
+      <div class="rodape">CURSO DE CONTABILIDADE PROFESSOR MOREIRA • WHATSAPP 61 985323574</div>
+    </section>
+<section class="slide" data-num="16">
+      <div class="marca">CURSO DE CONTABILIDADE PROFESSOR MOREIRA<br>WHATSAPP 61 985323574</div>
+      <div class="card" onclick="flipCard(this)">
+        <div class="face front">
+          <div class="badge">Cartão 16/19</div>
+          <h2>FGTS</h2><p>Encargo trabalhista da empresa.</p>
+          <div class="toque">Toque no cartão para virar</div>
+        </div>
+        <div class="face back">
+          <div class="badge">Cartão 16/19</div>
+          <h3>Lançamento</h3><p><b>Débito:</b> Despesa com FGTS</p><p><b>Crédito:</b> FGTS a Recolher<br><span class="tipo">Passivo</span></p>
+          <div class="toque">Toque para voltar</div>
+        </div>
+      </div>
+      <div class="rodape">CURSO DE CONTABILIDADE PROFESSOR MOREIRA • WHATSAPP 61 985323574</div>
+    </section>
+<section class="slide" data-num="17">
+      <div class="marca">CURSO DE CONTABILIDADE PROFESSOR MOREIRA<br>WHATSAPP 61 985323574</div>
+      <div class="card" onclick="flipCard(this)">
+        <div class="face front">
+          <div class="badge">Cartão 17/19</div>
+          <h2>Adiantamento de Clientes</h2><p>Cliente paga antes da entrega do bem ou serviço.</p>
+          <div class="toque">Toque no cartão para virar</div>
+        </div>
+        <div class="face back">
+          <div class="badge">Cartão 17/19</div>
+          <h3>Lançamento</h3><p><b>Débito:</b> Caixa/Bancos<br><span class="tipo">Ativo</span></p><p><b>Crédito:</b> Adiantamento de Clientes<br><span class="tipo">Passivo</span></p><div class="dica">A empresa recebeu, mas ainda deve entregar algo.</div>
+          <div class="toque">Toque para voltar</div>
+        </div>
+      </div>
+      <div class="rodape">CURSO DE CONTABILIDADE PROFESSOR MOREIRA • WHATSAPP 61 985323574</div>
+    </section>
+<section class="slide" data-num="18">
+      <div class="marca">CURSO DE CONTABILIDADE PROFESSOR MOREIRA<br>WHATSAPP 61 985323574</div>
+      <div class="card" onclick="flipCard(this)">
+        <div class="face front">
+          <div class="badge">Cartão 18/19</div>
+          <h2>Adiantamento a Fornecedores</h2><p>Empresa paga antes de receber mercadorias ou serviços.</p>
+          <div class="toque">Toque no cartão para virar</div>
+        </div>
+        <div class="face back">
+          <div class="badge">Cartão 18/19</div>
+          <h3>Lançamento</h3><p><b>Débito:</b> Adiantamento a Fornecedores<br><span class="tipo">Ativo</span></p><p><b>Crédito:</b> Caixa/Bancos<br><span class="tipo">Ativo</span></p>
+          <div class="toque">Toque para voltar</div>
+        </div>
+      </div>
+      <div class="rodape">CURSO DE CONTABILIDADE PROFESSOR MOREIRA • WHATSAPP 61 985323574</div>
+    </section>
+<section class="slide" data-num="19">
+      <div class="marca">CURSO DE CONTABILIDADE PROFESSOR MOREIRA<br>WHATSAPP 61 985323574</div>
+      <div class="card" onclick="flipCard(this)">
+        <div class="face front">
+          <div class="badge">Cartão 19/19</div>
+          <h2>Adiantamento de Salários</h2><p>Valor pago ao empregado antes da folha.</p>
+          <div class="toque">Toque no cartão para virar</div>
+        </div>
+        <div class="face back">
+          <div class="badge">Cartão 19/19</div>
+          <h3>Lançamento</h3><p><b>Débito:</b> Adiantamento de Salários<br><span class="tipo">Ativo</span></p><p><b>Crédito:</b> Caixa/Bancos<br><span class="tipo">Ativo</span></p><hr><h3>Na folha</h3><p><b>Débito:</b> Salários a Pagar</p><p><b>Crédito:</b> Adiantamento de Salários</p>
+          <div class="toque">Toque para voltar</div>
+        </div>
+      </div>
+      <div class="rodape">CURSO DE CONTABILIDADE PROFESSOR MOREIRA • WHATSAPP 61 985323574</div>
+    </section>
+</main>
+<nav>
+<button onclick="prevCard()">⬅ Voltar</button>
+<button onclick="restart()">Reiniciar</button>
+<div class="counter" id="counter">1/19</div>
+<button onclick="nextCard()">Avançar ➡</button>
+</nav>
 </div>
-<div class="footer">CURSO DE CONTABILIDADE PROFESSOR MOREIRA • WHATSAPP 61 985323574</div>
 <script>
-const cards = [
-{t:'Subscrição do Capital Social',b:`<div class="entry"><p><span class="d">D – Capital a Integralizar</span> <br>(PL - Redutora)</p><p><span class="c">C – Capital Social</span> <br>(PL)</p><div class="note">Os sócios assumem o compromisso de entregar recursos à entidade.</div></div>`},
-{t:'Integralização do Capital Social',b:`<div class="entry"><p><span class="d">D – Caixa/Bancos/Bens</span> <br>(Ativo)</p><p><span class="c">C – Capital a Integralizar</span> <br>(PL - Redutora)</p><div class="note">O sócio entrega dinheiro ou bens prometidos na subscrição.</div></div>`},
-{t:'Compra de Mercadorias com ICMS a Recuperar',b:`<div class="entry"><div class="section-title">Compra a prazo com ICMS recuperável</div><p><span class="d">D – Estoques</span></p><p><span class="d">D – ICMS a Recuperar</span></p><p><span class="c">C – Fornecedores</span></p><div class="note">Na compra, o ICMS recuperável não compõe o custo do estoque.</div></div>`},
-{t:'Venda de Mercadorias + Baixa do CMV',b:`<div class="entry"><div class="section-title">1º lançamento – venda</div><p><span class="d">D – Caixa/Clientes</span></p><p><span class="c">C – Receita de Vendas</span></p><div class="section-title">2º lançamento – baixa do estoque</div><p><span class="d">D – CMV</span></p><p><span class="c">C – Estoques</span></p></div>`},
-{t:'ICMS sobre Vendas',b:`<div class="entry"><p><span class="d">D – Deduções da Receita Bruta</span></p><p><span class="c">C – ICMS a Recolher</span></p><div class="note">Na venda, o ICMS reduz a receita bruta.</div></div>`},
-{t:'Seguros',b:`<div class="entry"><div class="section-title">1º lançamento – pagamento antecipado</div><p><span class="d">D – Seguros a Apropriar</span></p><p><span class="c">C – Caixa/Bancos</span></p><div class="section-title">2º lançamento – apropriação mensal</div><p><span class="d">D – Despesa com Seguros</span></p><p><span class="c">C – Seguros a Apropriar</span></p></div>`},
-{t:'Receita Recebida Antecipadamente',b:`<div class="entry"><p><span class="d">D – Caixa/Bancos</span></p><p><span class="c">C – Receita Antecipada</span> <br>(Passivo)</p><div class="note">Recebeu antes de prestar o serviço ou entregar o bem.</div></div>`},
-{t:'Apropriação da Receita Antecipada',b:`<div class="entry"><p><span class="d">D – Receita Antecipada</span> <br>(Passivo)</p><p><span class="c">C – Receita de Serviços/Vendas</span></p><div class="note">A receita só vai ao resultado quando for ganha.</div></div>`},
-{t:'Depreciação',b:`<div class="entry"><p><span class="d">D – Despesa de Depreciação</span></p><p><span class="c">C – Depreciação Acumulada</span> <br>(Ativo - Redutora)</p><div class="note">Se for máquina da fábrica, pode ir para custo de produção.</div></div>`},
-{t:'Constituição da PECLD',b:`<div class="entry"><p><span class="d">D – Despesa com PECLD</span></p><p><span class="c">C – PECLD</span> <br>(Ativo - Redutora de Clientes)</p><div class="note">Perda estimada com créditos de liquidação duvidosa.</div></div>`},
-{t:'Ajuste a Valor Presente - AVP',b:`<div class="entry"><div class="section-title">Venda a prazo com AVP</div><p><span class="d">D – Clientes</span></p><p><span class="c">C – Receita de Vendas</span></p><p><span class="c">C – Juros a Apropriar / AVP</span></p><div class="note">Depois, os juros são apropriados como receita financeira.</div></div>`},
-{t:'Equivalência Patrimonial',b:`<div class="entry"><div class="section-title">Lucro da investida</div><p><span class="d">D – Investimentos</span></p><p><span class="c">C – Receita de Equivalência Patrimonial</span></p><div class="section-title">Prejuízo da investida</div><p><span class="d">D – Despesa de Equivalência Patrimonial</span></p><p><span class="c">C – Investimentos</span></p></div>`},
-{t:'Dividendos Obrigatórios',b:`<div class="entry"><p><span class="d">D – Lucros Acumulados</span></p><p><span class="c">C – Dividendos a Pagar</span> <br>(Passivo)</p><div class="note">Destinação do lucro aos sócios ou acionistas.</div></div>`},
-{t:'Constituição da Reserva Legal',b:`<div class="entry"><p><span class="d">D – Lucros Acumulados</span></p><p><span class="c">C – Reserva Legal</span></p><div class="note">Transferência dentro do Patrimônio Líquido.</div></div>`},
-{t:'Apropriação e Pagamento de Salários',b:`<div class="entry"><div class="section-title">1º lançamento – apropriação</div><p><span class="d">D – Despesa com Salários</span></p><p><span class="c">C – Salários a Pagar</span></p><div class="section-title">2º lançamento – pagamento</div><p><span class="d">D – Salários a Pagar</span></p><p><span class="c">C – Caixa/Bancos</span></p><div class="note">Pagamento normalmente até o 5º dia útil do mês seguinte ao da apropriação.</div></div>`},
-{t:'Apropriação do FGTS',b:`<div class="entry"><p><span class="d">D – Despesa com FGTS</span></p><p><span class="c">C – FGTS a Recolher</span></p><div class="note">Encargo da empresa reconhecido por competência.</div></div>`},
-{t:'Adiantamento de Clientes',b:`<div class="entry"><p><span class="d">D – Caixa/Bancos</span></p><p><span class="c">C – Adiantamento de Clientes</span> <br>(Passivo)</p><div class="note">A empresa recebeu antes de entregar o produto ou serviço.</div></div>`},
-{t:'Adiantamento a Fornecedores',b:`<div class="entry"><p><span class="d">D – Adiantamento a Fornecedores</span> <br>(Ativo)</p><p><span class="c">C – Caixa/Bancos</span></p><div class="note">A empresa pagou antes de receber mercadorias ou serviços.</div></div>`},
-{t:'Adiantamento de Salários',b:`<div class="entry"><p><span class="d">D – Adiantamento de Salários</span> <br>(Ativo)</p><p><span class="c">C – Caixa/Bancos</span></p><div class="note">Quando a folha for apropriada, esse adiantamento será compensado.</div></div>`},
-{t:'Desconto de Duplicatas',b:`<div class="entry"><p><span class="d">D – Bancos</span></p><p><span class="d">D – Encargos Financeiros a Transcorrer</span></p><p><span class="c">C – Empréstimos por Duplicatas Descontadas</span></p><div class="note">Após CPC 48, normalmente tratado como passivo financeiro.</div></div>`},
-{t:'Compra e Venda de Imobilizado',b:`<div class="entry"><div class="section-title">Compra de imobilizado</div><p><span class="d">D – Imobilizado</span></p><p><span class="c">C – Caixa/Fornecedores</span></p><div class="section-title">Venda de imobilizado</div><p><span class="d">D – Caixa/Clientes</span></p><p><span class="c">C – Receita/Ganho na Venda do Imobilizado</span></p><div class="note">Na venda, também deve ocorrer a baixa do custo e da depreciação acumulada.</div></div>`}
-];
+const slides = Array.from(document.querySelectorAll('.slide'));
 let current = 0;
-const card = document.getElementById('card');
-const front = document.getElementById('front');
-const back = document.getElementById('back');
-const progress = document.getElementById('progress');
-function render(){
-  card.classList.remove('flipped');
-  const item = cards[current];
-  progress.textContent = `Cartão ${current+1} de ${cards.length}`;
-  front.innerHTML = `<div class="badge">TOP LANÇAMENTOS FGV</div><h1>${item.t}</h1><div class="tap">TOQUE PARA VIRAR</div>`;
-  back.innerHTML = `<h2>${item.t}</h2>${item.b}<div class="tap">TOQUE PARA VOLTAR</div>`;
+function showCard(index) {
+  slides.forEach(s => {
+    s.classList.remove('active');
+    const c = s.querySelector('.card');
+    if (c) c.classList.remove('flipped');
+  });
+  current = (index + slides.length) % slides.length;
+  slides[current].classList.add('active');
+  document.getElementById('counter').textContent = `${current+1}/${slides.length}`;
 }
-function flipCard(){card.classList.toggle('flipped')}
-function nextCard(e){e.stopPropagation(); current=(current+1)%cards.length; render()}
-function prevCard(e){e.stopPropagation(); current=(current-1+cards.length)%cards.length; render()}
-function restart(e){e.stopPropagation(); current=0; render()}
-render();
+function flipCard(card) { card.classList.toggle('flipped'); }
+function nextCard() { showCard(current + 1); }
+function prevCard() { showCard(current - 1); }
+function restart() { showCard(0); }
+document.addEventListener('keydown', e => {
+  if(e.key === 'ArrowRight') nextCard();
+  if(e.key === 'ArrowLeft') prevCard();
+  if(e.key === ' ') { e.preventDefault(); const c = slides[current].querySelector('.card'); flipCard(c); }
+});
+showCard(0);
 </script>
 </body>
 </html>
